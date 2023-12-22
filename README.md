@@ -1,8 +1,37 @@
-# React + Vite
+# Doctor Who and The Bill
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Doctor Who regulars who have been in The Bill and The Bill regulars who have been in Doctor Who.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [General info](#general-info)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Status](#status)
+- [Contact](#contact)
+
+## General info
+
+TBC
+
+## Screenshots
+
+TBC
+
+## Technologies
+
+- React
+- Vite
+
+## Setup
+
+TBC
+
+## Status
+
+Project is: _in progress_
+
+## Contact
+
+Created by nicm42 - feel free to contact me!
