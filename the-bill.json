@@ -1,22 +1,18 @@
 [
   {
     "name": "Moya Brady",
-    "image": [
-      {
-        "src": "moyabrady.jpg",
-        "alt": "Moya Brady"
-      }
-    ],
+    "image": {
+      "src": "moyabrady.jpg",
+      "alt": "Moya Brady"
+    },
     "episodes": ["Love and Monsters"]
   },
   {
     "name": "Graham Cole",
-    "image": [
-      {
-        "src": "grahamcole.jpg",
-        "alt": "Graham Cole"
-      }
-    ],
+    "image": {
+      "src": "grahamcole.jpg",
+      "alt": "Graham Cole"
+    },
     "episodes": [
       "Full Circle",
       "The Keeper of Traken",
@@ -29,32 +25,26 @@
   },
   {
     "name": "Greg Donaldson",
-    "image": [
-      {
-        "src": "gregdonaldson.jpg",
-        "alt": "Greg Donaldson"
-      }
-    ],
+    "image": {
+      "src": "gregdonaldson.jpg",
+      "alt": "Greg Donaldson"
+    },
     "episodes": ["Dalek Empire (Big Finish audio)"]
   },
   {
     "name": "Christopher Ellison",
-    "image": [
-      {
-        "src": "chrisellison.jpg",
-        "alt": "Christopher Ellison"
-      }
-    ],
+    "image": {
+      "src": "chrisellison.jpg",
+      "alt": "Christopher Ellison"
+    },
     "episodes": ["The Game (Big Finish audio)"]
   },
   {
     "name": "Jaye Griffiths",
-    "image": [
-      {
-        "src": "",
-        "alt": "Jaye Griffiths"
-      }
-    ],
+    "image": {
+      "src": "",
+      "alt": "Jaye Griffiths"
+    },
     "episodes": [
       "The Magician's Apprentice",
       "The Zygon Invasion",
@@ -69,107 +59,82 @@
   },
   {
     "name": "Raji James",
-    "image": [
-      {
-        "src": "rajijames.jpg",
-        "alt": "Raji James"
-      }
-    ],
+    "image": {
+      "src": "rajijames.jpg",
+      "alt": "Raji James"
+    },
     "episodes": ["Army of Ghosts", "Doomsday"]
   },
   {
     "name": "Ben Roberts",
-    "image": [
-      {
-        "src": "benroberts.jpg",
-        "alt": "Ben Roberts"
-      }
-    ],
+    "image": {
+      "src": "benroberts.jpg",
+      "alt": "Ben Roberts"
+    },
     "episodes": ["Resurrection of the Daleks"]
   },
   {
     "name": "Simon Rouse",
-    "image": [
-      {
-        "src": "simonrouse.jpg",
-        "alt": "Simon Rouse"
-      }
-    ],
+    "image": {
+      "src": "simonrouse.jpg",
+      "alt": "Simon Rouse"
+    },
     "episodes": ["Kinda"]
   },
   {
     "name": "Chris Simmons",
-    "image": [
-      {
-        "src": "chrissimmons.jpg",
-        "alt": "Chris Simmons"
-      }
-    ],
+    "image": {
+      "src": "chrissimmons.jpg",
+      "alt": "Chris Simmons"
+    },
     "episodes": ["Pier Pressure (Big Finish audio)"]
   },
   {
     "name": "Simon Slater",
-    "image": [
-      {
-        "src": "simonslater.jpg",
-        "alt": "Simon Slater"
-      }
-    ],
+    "image": {
+      "src": "simonslater.jpg",
+      "alt": "Simon Slater"
+    },
     "episodes": ["Trial of a Time Lord"]
   },
   {
     "name": "Jeff Stewart",
-    "image": [
-      {
-        "src": "jeffstewart.jpg",
-        "alt": "Jeff Stewart"
-      }
-    ],
+    "image": {
+      "src": "jeffstewart.jpg",
+      "alt": "Jeff Stewart"
+    },
     "episodes": ["Kinda"]
   },
   {
     "name": "Gillian Taylforth",
-    "image": [
-      {
-        "src": "gilliantaylforth.jpg",
-        "alt": "Gillian Taylforth"
-      }
-    ],
+    "image": {
+      "src": "gilliantaylforth.jpg",
+      "alt": "Gillian Taylforth"
+    },
     "episodes": ["Dimensions in Time"]
   },
   {
     "name": "Roberta Taylor",
-    "image": [
-      {
-        "src": "robertataylor.jpg",
-        "alt": "Roberta Taylor"
-      }
-    ],
+    "image": {
+      "src": "robertataylor.jpg",
+      "alt": "Roberta Taylor"
+    },
     "episodes": ["The Holy Terror (Big Finish audio)"]
   },
   {
     "name": "Rene Zagger",
-    "image": [
-      {
-        "src": "renezagger.jpg",
-        "alt": "Rene Zagger"
-      }
-    ],
+    "image": {
+      "src": "renezagger.jpg",
+      "alt": "Rene Zagger"
+    },
     "episodes": ["Utopia"]
   },
   {
     "name": "Karl Collins",
-    "image": [
-      {
-        "src": "karlcollins.jpg",
-        "alt": "Karl Collins"
-      }
-    ],
-    "episodes": [
-      "The End of Time: Part One",
-      "The End of Time: Part Two",
-      "The Star Beast",
-      "The Giggle"
-    ]
+    "image": {
+      "src": "karlcollins.jpg",
+      "alt": "Karl Collins"
+    },
+    "episodes": ["The End of Time: Part One", "The End of Time: Part Two", "The Star Beast", "The Giggle"]
   }
 ]

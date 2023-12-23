@@ -1,11 +1,13 @@
-import Image from '../assets/davidtennant.jpg';
+function Card({ name, imgsrc, imgalt, episodes }) {
+  const imageURL = `assets/${imgsrc}`;
+  // Put a comma between each episode
+  const formattedEpisodes = episodes.map((episode, index) => (index > 0 ? `, ${episode}` : episode));
 
-function Card() {
   return (
     <div className="card">
-      <h2 className="card--name">David Tennant</h2>
-      <img className="card--image" src={Image} alt="David Tennant" />
-      <p className="card--episodes">Deadline</p>
+      <h2 className="card--name">{name}</h2>
+      <img className="card--image" src={imageURL} alt={imgalt} />
+      <p className="card--episodes">{formattedEpisodes}</p>
     </div>
   );
 }
