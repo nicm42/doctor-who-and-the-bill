@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function Card({ name, imgsrc, imgalt, episodes }) {
   const imageURL = `assets/${imgsrc}`;
   // Put a comma between each episode
@@ -11,5 +13,12 @@ function Card({ name, imgsrc, imgalt, episodes }) {
     </div>
   );
 }
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired,
+  imgsrc: PropTypes.string.isRequired,
+  imgalt: PropTypes.string.isRequired,
+  episodes: PropTypes.array.isRequired,
+};
 
 export default Card;
