@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTitle } from './hooks/useTitle';
 import Card from './components/Card';
 import './App.css';
 import doctorwho from '../doctor-who.json';
@@ -6,6 +7,9 @@ import thebill from '../the-bill.json';
 
 function App() {
   const [whatToShow, setWhatToShow] = useState('');
+
+  useTitle(whatToShow);
+
   const textToShowSame = whatToShow === 'doctorwho' ? 'Doctor Who' : whatToShow === 'thebill' ? 'The Bill' : '';
   const textToShowOpposite = whatToShow === 'doctorwho' ? 'The Bill' : whatToShow === 'thebill' ? 'Doctor Who' : '';
 
