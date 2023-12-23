@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTitle } from './hooks/useTitle';
+import { useFavicon } from './hooks/useFavicon';
 import Card from './components/Card';
 import './App.css';
 import doctorwho from '../doctor-who.json';
@@ -9,6 +10,7 @@ function App() {
   const [whatToShow, setWhatToShow] = useState('');
 
   useTitle(whatToShow);
+  useFavicon(whatToShow);
 
   const textToShowSame = whatToShow === 'doctorwho' ? 'Doctor Who' : whatToShow === 'thebill' ? 'The Bill' : '';
   const textToShowOpposite = whatToShow === 'doctorwho' ? 'The Bill' : whatToShow === 'thebill' ? 'Doctor Who' : '';
