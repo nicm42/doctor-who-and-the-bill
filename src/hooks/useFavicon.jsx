@@ -6,12 +6,12 @@ export function useFavicon(favicon) {
   useEffect(() => {
     const faviconElement = document.querySelector('.favicon');
     const faviconImage = favicon === 'doctorwho' ? '/tardis.png' : favicon === 'thebill' ? '/helmet.png' : '';
-    faviconElement.href = faviconImage;
-
-    console.log(faviconImage);
-
-    return () => {
+    if (faviconElement) {
       faviconElement.href = faviconImage;
-    };
+    }
+
+    /* return () => {
+      faviconElement.href = 'faviconImage';
+    }; */
   });
 }
