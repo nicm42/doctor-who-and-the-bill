@@ -26,10 +26,20 @@ function App() {
       {whatToShow && <h1>{headerText}</h1>}
       {whatToShow && <p>{subtitleText}</p>}
       <div className="buttons">
-        <button onClick={() => setWhatToShow('doctorwho')} aria-disabled={dwdisabled}>
+        <button
+          onClick={() => {
+            whatToShow !== 'doctorwho' ? setWhatToShow('doctorwho') : '';
+          }}
+          aria-disabled={dwdisabled}
+        >
           Show Doctor Who regulars
         </button>
-        <button onClick={() => setWhatToShow('thebill')} aria-disabled={tbdisabled}>
+        <button
+          onClick={() => {
+            whatToShow !== 'thebill' ? setWhatToShow('thebill') : '';
+          }}
+          aria-disabled={tbdisabled}
+        >
           Show The Bill regulars
         </button>
       </div>
