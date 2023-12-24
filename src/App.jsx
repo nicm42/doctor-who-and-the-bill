@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTitle } from './hooks/useTitle';
 import { useFavicon } from './hooks/useFavicon';
 import Card from './components/Card';
-import './App.css';
+import './App.scss';
 import doctorwho from '../doctor-who.json';
 import thebill from '../the-bill.json';
 
@@ -23,14 +23,16 @@ function App() {
 
   return (
     <>
-      <button onClick={() => setWhatToShow('doctorwho')} aria-disabled={dwdisabled}>
-        Show Doctor Who regulars
-      </button>
-      <button onClick={() => setWhatToShow('thebill')} aria-disabled={tbdisabled}>
-        Show The Bill regulars
-      </button>
       {whatToShow && <h1>{headerText}</h1>}
       {whatToShow && <p>{subtitleText}</p>}
+      <div className="buttons">
+        <button onClick={() => setWhatToShow('doctorwho')} aria-disabled={dwdisabled}>
+          Show Doctor Who regulars
+        </button>
+        <button onClick={() => setWhatToShow('thebill')} aria-disabled={tbdisabled}>
+          Show The Bill regulars
+        </button>
+      </div>
       {whatToShow === 'doctorwho' &&
         doctorwho.map((person) => (
           <Card
