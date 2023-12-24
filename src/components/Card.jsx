@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Card.scss';
 
 function Card({ name, imgsrc, imgalt, episodes }) {
   const imageURL = `assets/${imgsrc}`;
