@@ -26,6 +26,7 @@ describe('Testing set up', () => {
         /Here are the regulars from Doctor Who who have been in The Bill and the episodes they've been in/i,
       ),
     ).toBeInTheDocument();
+    expect(document.title).toEqual('Doctor Who in The Bill');
   });
 
   test('pressing The Bill button should show the relevant text', async () => {
@@ -38,5 +39,12 @@ describe('Testing set up', () => {
         /Here are the regulars from The Bill who have been in Doctor Who and the episodes they've been in/i,
       ),
     ).toBeInTheDocument();
+    expect(document.title).toEqual('The Bill in Doctor Who');
+  });
+
+  test('Has some cards only after pressing a button', async () => {
+    expect(screen.queryAllByTestId('card')).toHaveLength(0);
+    await userEvent.click(await screen.getByRole('button', { name: /Show Doctor Who regulars/i }));
+    expect(screen.queryAllByTestId('card')).not.toHaveLength(0);
   });
 });
