@@ -1,6 +1,11 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --body-background: hsl(225, 93%, 99%);
   --button-background: hsl(225, 93%, 87%);
   --button-background-hover: hsl(225, 93%, 78%);
   --button-background-disabled: hsl(225, 23%, 87%);
+}
+
+body {
+  background-color: var(--body-background);
 }
