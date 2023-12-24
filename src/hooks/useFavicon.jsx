@@ -10,8 +10,8 @@ export function useFavicon(favicon) {
       faviconElement.href = faviconImage;
     }
 
-    /* return () => {
-      faviconElement.href = 'faviconImage';
-    }; */
+    return () => {
+      <div></div>;
+    };
   });
 }
