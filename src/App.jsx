@@ -18,10 +18,17 @@ function App() {
   const headerText = `${textToShowSame} regulars who have been in ${textToShowOpposite}`;
   const subtitleText = `Here are the regulars from  ${textToShowSame} who have been in ${textToShowOpposite} and the episodes they've been in`;
 
+  const dwdisabled = whatToShow === 'doctorwho' ? 'true' : 'false';
+  const tbdisabled = whatToShow === 'thebill' ? 'true' : 'false';
+
   return (
     <>
-      <button onClick={() => setWhatToShow('doctorwho')}>Show Doctor Who regulars</button>
-      <button onClick={() => setWhatToShow('thebill')}>Show The Bill regulars</button>
+      <button onClick={() => setWhatToShow('doctorwho')} aria-disabled={dwdisabled}>
+        Show Doctor Who regulars
+      </button>
+      <button onClick={() => setWhatToShow('thebill')} aria-disabled={tbdisabled}>
+        Show The Bill regulars
+      </button>
       {whatToShow && <h1>{headerText}</h1>}
       {whatToShow && <p>{subtitleText}</p>}
       {whatToShow === 'doctorwho' &&
