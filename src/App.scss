@@ -42,3 +42,9 @@ button {
     background-color: var(--button-background-hover);
   }
 }
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}

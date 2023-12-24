@@ -43,26 +43,28 @@ function App() {
           Show The Bill regulars
         </button>
       </div>
-      {whatToShow === 'doctorwho' &&
-        doctorwho.map((person) => (
-          <Card
-            key={person.name}
-            name={person.name}
-            imgsrc={person.image.src}
-            imgalt={person.image.alt}
-            episodes={person.episodes}
-          />
-        ))}
-      {whatToShow === 'thebill' &&
-        thebill.map((person) => (
-          <Card
-            key={person.name}
-            name={person.name}
-            imgsrc={person.image.src}
-            imgalt={person.image.alt}
-            episodes={person.episodes}
-          />
-        ))}
+      <div className="cards">
+        {whatToShow === 'doctorwho' &&
+          doctorwho.map((person) => (
+            <Card
+              key={person.name}
+              name={person.name}
+              imgsrc={person.image.src}
+              imgalt={person.image.alt}
+              episodes={person.episodes}
+            />
+          ))}
+        {whatToShow === 'thebill' &&
+          thebill.map((person) => (
+            <Card
+              key={person.name}
+              name={person.name}
+              imgsrc={person.image.src}
+              imgalt={person.image.alt}
+              episodes={person.episodes}
+            />
+          ))}
+      </div>
     </>
   );
 }
