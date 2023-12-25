@@ -12,6 +12,7 @@ p {
   max-width: 50ch;
   text-align: center;
   text-wrap: balance;
+  line-height: 1.6;
 }
 
 .buttons {
@@ -47,4 +48,5 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
 }

@@ -1,23 +1,37 @@
 .card {
   border: 1px solid var(--card-border);
   border-radius: var(--border-radius);
+  width: 250px;
   display: flex;
   flex-direction: column;
-  margin-inline: auto;
+}
+
+.card--text {
+  display: flex;
+  flex-direction: column;
   padding: 0.5rem 1rem;
-  width: 250px;
+  flex-grow: 1;
 }
 
 .card--name {
+  flex-grow: 1;
   font-size: 1.5rem;
   text-align: center;
 }
 
 .card--image {
-  flex-grow: 1;
-  max-height: 200px;
+  height: 200px;
+  width: 100%;
 }
 
 .card--episodes {
   font-size: 0.875rem;
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 24px;
+}
+
+.card--episode::marker {
+  color: var(--card-border);
 }
