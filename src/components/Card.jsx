@@ -7,12 +7,27 @@ function Card({ name, imgsrc, imgalt, episodes }) {
   const closeButtonRef = useRef(null);
   let closeButtonHeight = 0;
 
+  // Get close button height so we can make sure episodes list is not on top of it
   useEffect(() => {
     if (showEpisodes) {
       closeButtonHeight = closeButtonRef.current?.offsetHeight;
       document.documentElement.style.setProperty('--close-button-height', `${closeButtonHeight}px`);
     }
   }, [showEpisodes]);
+
+  // Close modal when escape key is pressed
+  useEffect(() => {
+    const handleKeyboard = (event) => {
+      if (event.key === 'Escape') {
+        setShowEpisodes(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyboard);
+    return () => {
+      window.removeEventListener('keydown', handleKeyboard);
+    };
+  }, [setShowEpisodes]);
 
   const imageURL = `assets/${imgsrc}`;
 
@@ -26,7 +41,7 @@ function Card({ name, imgsrc, imgalt, episodes }) {
         </button>
         {showEpisodes && (
           <>
-            <div className="card--episodes-overlay"></div>
+            <div className="card--episodes-overlay" onClick={() => setShowEpisodes(false)}></div>
             <div className="card--episodes">
               <button className="card--episodes-close" ref={closeButtonRef} onClick={() => setShowEpisodes(false)}>
                 X
