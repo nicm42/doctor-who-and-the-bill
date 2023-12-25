@@ -1,16 +1,22 @@
 .card {
-  border: 1px solid var(--card-border);
+  border: 1px solid var(--card-border-colour);
   border-radius: var(--border-radius);
-  width: 250px;
   display: flex;
   flex-direction: column;
+  width: 250px;
+}
+
+.card--image {
+  height: 200px;
+  width: 100%;
 }
 
 .card--text {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 1rem;
   flex-grow: 1;
+  justify-content: center;
+  padding: 0.5rem 1rem;
 }
 
 .card--name {
@@ -19,19 +25,41 @@
   text-align: center;
 }
 
-.card--image {
-  height: 200px;
+.card--button {
   width: 100%;
 }
 
 .card--episodes {
-  font-size: 0.875rem;
-  margin-top: auto;
+  --card-episodes-padding-inline: 0.5rem;
+  background-color: var(--body-background);
+  left: 50%;
+  min-height: 50%;
+  min-width: 50%;
+  padding: var(--card-episodes-padding-inline) 1rem;
+  position: fixed;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.card--episodes-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+}
+
+.card--episodes-close {
+  position: fixed;
+  right: var(--card-episodes-padding-inline);
+  font-size: 1.2rem;
+}
+
+.card--episodes-list {
   display: flex;
-  flex-wrap: wrap;
-  column-gap: 24px;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: calc(var(--close-button-height) + 0.5rem);
 }
 
 .card--episode::marker {
-  color: var(--card-border);
+  color: var(--card-border-colour);
 }

@@ -8,11 +8,11 @@ h1 {
 
 p {
   font-size: 1.2rem;
+  line-height: 1.6;
   margin-inline: auto;
   max-width: 50ch;
   text-align: center;
   text-wrap: balance;
-  line-height: 1.6;
 }
 
 .buttons {
@@ -37,9 +37,9 @@ button {
     cursor: auto;
   }
 
-  &[aria-disabled='false']:hover,
-  &[aria-disabled='false']:focus-within,
-  &[aria-disabled='false']:active {
+  &:not([aria-disabled='true']):hover,
+  &:not([aria-disabled='true']):focus-within,
+  &:not([aria-disabled='true']):active {
     background-color: var(--button-background-hover);
   }
 }
