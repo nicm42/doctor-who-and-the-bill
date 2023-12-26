@@ -44,7 +44,7 @@ describe('Testing set up', () => {
     await waitFor(() => expect(screen.queryByRole('list', { name: /Episode list/i })).not.toBeInTheDocument());
   });
 
-  test.only('Should close episodes after Escape key pressed', async () => {
+  test('Should close episodes after Escape key pressed', async () => {
     await userEvent.click(await screen.getByRole('button', { name: /Show episodes/i }));
     await fireEvent.keyDown(document, { key: 'Escape' });
     // Need to wait due to timeout before closing
