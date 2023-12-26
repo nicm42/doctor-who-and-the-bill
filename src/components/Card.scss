@@ -31,6 +31,8 @@
 
 .card--episodes {
   --card-episodes-padding-inline: 0.5rem;
+
+  animation: fade-in 300ms forwards;
   background-color: var(--body-background);
   left: 50%;
   min-height: 50%;
@@ -39,28 +41,27 @@
   position: fixed;
   top: 50%;
   translate: -50% -50%;
-  animation: fadeIn 300ms forwards;
 
   &.closing {
-    animation: fadeOut var(--fade-out-time) forwards;
+    animation: fade-out var(--fade-out-time) forwards;
   }
 }
 
 .card--episodes-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
+  animation: fade-in 300ms forwards;
+  background-color: rgb(0 0 0 / 75%);
   inset: 0;
-  animation: fadeIn 300ms forwards;
+  position: fixed;
 
   &.closing {
-    animation: fadeOut var(--fade-out-time) forwards;
+    animation: fade-out var(--fade-out-time) forwards;
   }
 }
 
 .card--episodes-close {
+  font-size: 1.2rem;
   position: fixed;
   right: var(--card-episodes-padding-inline);
-  font-size: 1.2rem;
 }
 
 .card--episodes-list {
@@ -74,19 +75,21 @@
   color: var(--card-border-colour);
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-@keyframes fadeOut {
+@keyframes fade-out {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
