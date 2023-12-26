@@ -66,13 +66,19 @@ function Card({ name, imgsrc, imgalt, episodes }) {
           <>
             <div
               className={isClosing ? 'card--episodes-overlay closing' : 'card--episodes-overlay'}
+              data-testid="card-overlay"
               onClick={() => closeModal()}
             ></div>
             <div className={isClosing ? 'card--episodes closing' : 'card--episodes'}>
-              <button className="card--episodes-close" ref={closeButtonRef} onClick={() => closeModal()}>
+              <button
+                className="card--episodes-close"
+                aria-label="Close"
+                ref={closeButtonRef}
+                onClick={() => closeModal()}
+              >
                 X
               </button>
-              <ul className="card--episodes-list">
+              <ul className="card--episodes-list" aria-label="Episode list">
                 {episodes.map((episode) => (
                   <li className="card--episode" key={episode}>
                     {episode}
