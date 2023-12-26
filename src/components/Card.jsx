@@ -25,10 +25,14 @@ function Card({ name, imgsrc, imgalt, episodes }) {
   }, [showEpisodes]);
 
   // Close modal when escape key is pressed
+  // And trap focus
   useEffect(() => {
     const handleKeyboard = (event) => {
       if (event.key === 'Escape') {
         setShowEpisodes(false);
+      }
+      if (event.key === 'Tab') {
+        event.preventDefault();
       }
     };
 
