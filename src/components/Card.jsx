@@ -4,13 +4,22 @@ import './Card.scss';
 
 function Card({ name, imgsrc, imgalt, episodes }) {
   const [showEpisodes, setShowEpisodes] = useState();
+  const [isClosing, setIsClosing] = useState(false);
+
   const openButtonRef = useRef(null);
   const closeButtonRef = useRef(null);
+
   let closeButtonHeight = 0;
 
   const closeModal = () => {
-    setShowEpisodes(false);
-    openButtonRef.current.focus();
+    const fadeOutTime = 300;
+    setIsClosing(true);
+    document.documentElement.style.setProperty('--fade-out-time', `${fadeOutTime}ms`);
+    setTimeout(() => {
+      setShowEpisodes(false);
+      openButtonRef.current.focus();
+      setIsClosing(false);
+    }, fadeOutTime);
   };
 
   // Get close button height so we can make sure episodes list is not on top of it
@@ -55,8 +64,11 @@ function Card({ name, imgsrc, imgalt, episodes }) {
         </button>
         {showEpisodes && (
           <>
-            <div className="card--episodes-overlay" onClick={() => closeModal()}></div>
-            <div className="card--episodes">
+            <div
+              className={isClosing ? 'card--episodes-overlay closing' : 'card--episodes-overlay'}
+              onClick={() => closeModal()}
+            ></div>
+            <div className={isClosing ? 'card--episodes closing' : 'card--episodes'}>
               <button className="card--episodes-close" ref={closeButtonRef} onClick={() => closeModal()}>
                 X
               </button>
