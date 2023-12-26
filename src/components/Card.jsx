@@ -4,14 +4,23 @@ import './Card.scss';
 
 function Card({ name, imgsrc, imgalt, episodes }) {
   const [showEpisodes, setShowEpisodes] = useState();
+  const openButtonRef = useRef(null);
   const closeButtonRef = useRef(null);
   let closeButtonHeight = 0;
 
   // Get close button height so we can make sure episodes list is not on top of it
   useEffect(() => {
+    let currentFocus = openButtonRef.current;
     if (showEpisodes) {
       closeButtonHeight = closeButtonRef.current?.offsetHeight;
       document.documentElement.style.setProperty('--close-button-height', `${closeButtonHeight}px`);
+      // Check where the focus currently is
+      currentFocus = document.activeElement;
+      // Focus close button
+      closeButtonRef.current?.focus();
+    } else {
+      // Focus show episodes button on card related to this modal
+      currentFocus.focus();
     }
   }, [showEpisodes]);
 
@@ -36,7 +45,7 @@ function Card({ name, imgsrc, imgalt, episodes }) {
       <img className="card--image" loading="lazy" src={imageURL} alt={imgalt} />
       <div className="card--text">
         <h2 className="card--name">{name}</h2>
-        <button className="card--button" onClick={() => setShowEpisodes(true)}>
+        <button className="card--button" ref={openButtonRef} onClick={() => setShowEpisodes(true)}>
           Show episodes
         </button>
         {showEpisodes && (
