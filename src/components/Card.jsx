@@ -8,19 +8,18 @@ function Card({ name, imgsrc, imgalt, episodes }) {
   const closeButtonRef = useRef(null);
   let closeButtonHeight = 0;
 
+  const closeModal = () => {
+    setShowEpisodes(false);
+    openButtonRef.current.focus();
+  };
+
   // Get close button height so we can make sure episodes list is not on top of it
   useEffect(() => {
-    let currentFocus = openButtonRef.current;
     if (showEpisodes) {
       closeButtonHeight = closeButtonRef.current?.offsetHeight;
       document.documentElement.style.setProperty('--close-button-height', `${closeButtonHeight}px`);
-      // Check where the focus currently is
-      currentFocus = document.activeElement;
       // Focus close button
       closeButtonRef.current?.focus();
-    } else {
-      // Focus show episodes button on card related to this modal
-      currentFocus.focus();
     }
   }, [showEpisodes]);
 
@@ -28,11 +27,13 @@ function Card({ name, imgsrc, imgalt, episodes }) {
   // And trap focus
   useEffect(() => {
     const handleKeyboard = (event) => {
-      if (event.key === 'Escape') {
-        setShowEpisodes(false);
-      }
-      if (event.key === 'Tab') {
-        event.preventDefault();
+      if (showEpisodes) {
+        if (event.key === 'Escape') {
+          closeModal();
+        }
+        if (event.key === 'Tab') {
+          event.preventDefault();
+        }
       }
     };
 
@@ -40,7 +41,7 @@ function Card({ name, imgsrc, imgalt, episodes }) {
     return () => {
       window.removeEventListener('keydown', handleKeyboard);
     };
-  }, [setShowEpisodes]);
+  }, [showEpisodes, setShowEpisodes]);
 
   const imageURL = `assets/${imgsrc}`;
 
@@ -54,9 +55,9 @@ function Card({ name, imgsrc, imgalt, episodes }) {
         </button>
         {showEpisodes && (
           <>
-            <div className="card--episodes-overlay" onClick={() => setShowEpisodes(false)}></div>
+            <div className="card--episodes-overlay" onClick={() => closeModal()}></div>
             <div className="card--episodes">
-              <button className="card--episodes-close" ref={closeButtonRef} onClick={() => setShowEpisodes(false)}>
+              <button className="card--episodes-close" ref={closeButtonRef} onClick={() => closeModal()}>
                 X
               </button>
               <ul className="card--episodes-list">
