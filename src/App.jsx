@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { flushSync } from 'react-dom';
 import { useTitle } from './hooks/useTitle';
 import { useFavicon } from './hooks/useFavicon';
 import Card from './components/Card';
@@ -21,25 +22,27 @@ function App() {
   const dwdisabled = whatToShow === 'doctorwho' ? 'true' : 'false';
   const tbdisabled = whatToShow === 'thebill' ? 'true' : 'false';
 
+  const showCards = (showText) => {
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        flushSync(() => {
+          setWhatToShow(showText);
+        });
+      });
+    } else {
+      setWhatToShow(showText);
+    }
+  };
+
   return (
     <>
       {whatToShow && <h1>{headerText}</h1>}
       {whatToShow && <p>{subtitleText}</p>}
       <div className="buttons">
-        <button
-          onClick={() => {
-            whatToShow !== 'doctorwho' ? setWhatToShow('doctorwho') : '';
-          }}
-          aria-disabled={dwdisabled}
-        >
+        <button onClick={() => showCards('doctorwho')} aria-disabled={dwdisabled}>
           Show Doctor Who regulars
         </button>
-        <button
-          onClick={() => {
-            whatToShow !== 'thebill' ? setWhatToShow('thebill') : '';
-          }}
-          aria-disabled={tbdisabled}
-        >
+        <button onClick={() => showCards('thebill')} aria-disabled={tbdisabled}>
           Show The Bill regulars
         </button>
       </div>
