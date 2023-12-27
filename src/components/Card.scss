@@ -64,6 +64,11 @@
   right: var(--card-episodes-padding-inline);
 }
 
+.card--episodes-header {
+  margin-right: calc(var(--close-button-width) + 0.5rem);
+  text-align: center;
+}
+
 .card--episodes-list {
   display: flex;
   flex-direction: column;

@@ -76,6 +76,7 @@ function App() {
               imgalt={person.image.alt}
               episodes={person.episodes}
               index={index}
+              whatToShow={whatToShow}
             />
           ))}
         {whatToShow === 'thebill' &&
@@ -87,6 +88,7 @@ function App() {
               imgalt={person.image.alt}
               episodes={person.episodes}
               index={index}
+              whatToShow={whatToShow}
             />
           ))}
       </div>

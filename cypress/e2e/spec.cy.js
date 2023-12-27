@@ -44,6 +44,9 @@ describe('testing spec', () => {
     // Open the episode list for one of the cards
     cy.get('.card--button').eq(1).click();
     cy.focused().should('have.class', 'card--episodes-close');
+    cy.contains("Graham Cole's Doctor Who episodes", {
+      matchCase: false,
+    }).should('exist');
     cy.contains('Full Circle', {
       matchCase: false,
     }).should('exist');

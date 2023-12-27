@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './Card.scss';
 
-function Card({ name, imgsrc, imgalt, episodes, index }) {
+function Card({ name, imgsrc, imgalt, episodes, index, whatToShow }) {
   const [showEpisodes, setShowEpisodes] = useState();
   const [isClosing, setIsClosing] = useState(false);
 
@@ -10,6 +10,7 @@ function Card({ name, imgsrc, imgalt, episodes, index }) {
   const closeButtonRef = useRef(null);
 
   let closeButtonHeight = 0;
+  let closeButtonWidth = 0;
 
   const closeModal = () => {
     const fadeOutTime = 300;
@@ -22,11 +23,13 @@ function Card({ name, imgsrc, imgalt, episodes, index }) {
     }, fadeOutTime);
   };
 
-  // Get close button height so we can make sure episodes list is not on top of it
+  // Get close button width height so we can make sure title and episodes list are not on top of it
   useEffect(() => {
     if (showEpisodes) {
       closeButtonHeight = closeButtonRef.current?.offsetHeight;
+      closeButtonWidth = closeButtonRef.current?.offsetWidth;
       document.documentElement.style.setProperty('--close-button-height', `${closeButtonHeight}px`);
+      document.documentElement.style.setProperty('--close-button-width', `${closeButtonWidth}px`);
       // Focus close button
       closeButtonRef.current?.focus();
     }
@@ -53,6 +56,7 @@ function Card({ name, imgsrc, imgalt, episodes, index }) {
   }, [showEpisodes, setShowEpisodes]);
 
   const imageURL = `assets/${imgsrc}`;
+  const episodesHeader = whatToShow === 'doctorwho' ? 'The Bill' : 'Doctor Who';
 
   return (
     <div className="card" data-testid="card" style={{ viewTransitionName: `card-${index}` }}>
@@ -78,6 +82,7 @@ function Card({ name, imgsrc, imgalt, episodes, index }) {
               >
                 X
               </button>
+              <h3 className="card--episodes-header">{`${name}'s ${episodesHeader} episodes`}</h3>
               <ul className="card--episodes-list" aria-label="Episode list">
                 {episodes.map((episode) => (
                   <li className="card--episode" key={episode}>
