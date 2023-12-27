@@ -49,4 +49,33 @@ button {
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
+  view-transition-name: cards;
+}
+
+::view-transition-old(cards) {
+  animation: 500ms slide-from-right ease-in both;
+  transform-origin: top;
+}
+
+::view-transition-new(cards) {
+  animation: 500ms slide-to-left ease-out both;
+  transform-origin: top;
+}
+
+@keyframes slide-from-right {
+  from {
+    translate: 200%;
+  }
+  to {
+    translate: 0;
+  }
+}
+
+@keyframes slide-to-left {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: -200%;
+  }
 }

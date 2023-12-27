@@ -23,14 +23,16 @@ function App() {
   const tbdisabled = whatToShow === 'thebill' ? 'true' : 'false';
 
   const showCards = (showText) => {
-    if (document.startViewTransition) {
-      document.startViewTransition(() => {
-        flushSync(() => {
-          setWhatToShow(showText);
+    if (showText !== whatToShow) {
+      if (document.startViewTransition) {
+        document.startViewTransition(() => {
+          flushSync(() => {
+            setWhatToShow(showText);
+          });
         });
-      });
-    } else {
-      setWhatToShow(showText);
+      } else {
+        setWhatToShow(showText);
+      }
     }
   };
 
