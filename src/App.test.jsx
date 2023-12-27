@@ -8,12 +8,21 @@ describe('Testing set up', () => {
     render(<App />);
   });
 
-  test('should be two buttons on the page and nothing else to start with', () => {
+  test('should be two buttons on the page and default heading and subtitle', () => {
     expect(screen.getAllByRole('button')).toHaveLength(2);
     screen.getByRole('button', { name: /Show Doctor Who regulars/i });
     expect(screen.getByRole('button', { name: /Show Doctor Who regulars/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Show The Bill regulars/i })).toBeInTheDocument();
-    expect(screen.queryByRole('heading')).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('heading', {
+        name: /Doctor Who regulars who have been in The Bill and The Bill regulars who have been in Doctor Who/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /Press a button to see Doctor Who regulars who have been in The Bill or The Bill regulars who have been in Doctor Who/i,
+      ),
+    ).toBeInTheDocument();
   });
 
   test('pressing the Doctor Who button should show the relevant text', async () => {

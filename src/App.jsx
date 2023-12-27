@@ -10,7 +10,7 @@ import thebill from '../the-bill.json';
 function App() {
   const [whatToShow, setWhatToShow] = useState('');
   const [headerText, setHeaderText] = useState(
-    'Doctor Who regulars who have been in The Bill and The Bill regulars who have been in Doctor Who.',
+    'Doctor Who regulars who have been in The Bill and The Bill regulars who have been in Doctor Who',
   );
   const [subtitleText, setSubtitleText] = useState(
     'Press a button to see Doctor Who regulars who have been in The Bill or The Bill regulars who have been in Doctor Who',
