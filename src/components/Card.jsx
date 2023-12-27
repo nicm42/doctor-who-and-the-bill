@@ -59,7 +59,7 @@ function Card({ name, imgsrc, imgalt, episodes, index, whatToShow }) {
   const episodesHeader = whatToShow === 'doctorwho' ? 'The Bill' : 'Doctor Who';
 
   return (
-    <div className="card" data-testid="card" style={{ viewTransitionName: `card-${index}` }}>
+    <div className="card" data-testid="card">
       <img className="card--image" loading="lazy" src={imageURL} alt={imgalt} />
       <div className="card--text">
         <h2 className="card--name">{name}</h2>
