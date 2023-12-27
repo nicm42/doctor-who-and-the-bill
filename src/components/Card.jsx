@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './Card.scss';
 
-function Card({ name, imgsrc, imgalt, episodes }) {
+function Card({ name, imgsrc, imgalt, episodes, index }) {
   const [showEpisodes, setShowEpisodes] = useState();
   const [isClosing, setIsClosing] = useState(false);
 
@@ -55,7 +55,7 @@ function Card({ name, imgsrc, imgalt, episodes }) {
   const imageURL = `assets/${imgsrc}`;
 
   return (
-    <div className="card" data-testid="card">
+    <div className="card" data-testid="card" style={{ viewTransitionName: `card-${index}` }}>
       <img className="card--image" loading="lazy" src={imageURL} alt={imgalt} />
       <div className="card--text">
         <h2 className="card--name">{name}</h2>

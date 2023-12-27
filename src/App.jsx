@@ -50,23 +50,25 @@ function App() {
       </div>
       <div className="cards">
         {whatToShow === 'doctorwho' &&
-          doctorwho.map((person) => (
+          doctorwho.map((person, index) => (
             <Card
               key={person.name}
               name={person.name}
               imgsrc={person.image.src}
               imgalt={person.image.alt}
               episodes={person.episodes}
+              index={index}
             />
           ))}
         {whatToShow === 'thebill' &&
-          thebill.map((person) => (
+          thebill.map((person, index) => (
             <Card
               key={person.name}
               name={person.name}
               imgsrc={person.image.src}
               imgalt={person.image.alt}
               episodes={person.episodes}
+              index={index}
             />
           ))}
       </div>
