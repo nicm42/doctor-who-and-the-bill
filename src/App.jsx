@@ -9,20 +9,38 @@ import thebill from '../the-bill.json';
 
 function App() {
   const [whatToShow, setWhatToShow] = useState('');
+  const [headerText, setHeaderText] = useState(
+    'Doctor Who regulars who have been in The Bill and The Bill regulars who have been in Doctor Who.',
+  );
+  const [subtitleText, setSubtitleText] = useState(
+    'Press a button to see Doctor Who regulars who have been in The Bill or The Bill regulars who have been in Doctor Who',
+  );
 
   useTitle(whatToShow);
   useFavicon(whatToShow);
-
-  const textToShowSame = whatToShow === 'doctorwho' ? 'Doctor Who' : whatToShow === 'thebill' ? 'The Bill' : '';
-  const textToShowOpposite = whatToShow === 'doctorwho' ? 'The Bill' : whatToShow === 'thebill' ? 'Doctor Who' : '';
-
-  const headerText = `${textToShowSame} regulars who have been in ${textToShowOpposite}`;
-  const subtitleText = `Here are the regulars from  ${textToShowSame} who have been in ${textToShowOpposite} and the episodes they've been in`;
 
   const dwdisabled = whatToShow === 'doctorwho' ? 'true' : 'false';
   const tbdisabled = whatToShow === 'thebill' ? 'true' : 'false';
 
   const showCards = (showText) => {
+    let textToShowSame;
+    let textToShowOpposite;
+
+    if (showText === 'doctorwho') {
+      textToShowSame = 'Doctor Who';
+      textToShowOpposite = 'The Bill';
+    }
+
+    if (showText === 'thebill') {
+      textToShowSame = 'The Bill';
+      textToShowOpposite = 'Doctor Who';
+    }
+
+    setHeaderText(`${textToShowSame} regulars who have been in ${textToShowOpposite}`);
+    setSubtitleText(
+      `Here are the regulars from  ${textToShowSame} who have been in ${textToShowOpposite} and the episodes they've been in`,
+    );
+
     if (showText !== whatToShow) {
       if (document.startViewTransition) {
         document.startViewTransition(() => {
@@ -38,8 +56,8 @@ function App() {
 
   return (
     <>
-      {whatToShow && <h1>{headerText}</h1>}
-      {whatToShow && <p>{subtitleText}</p>}
+      <h1>{headerText}</h1>
+      <p>{subtitleText}</p>
       <div className="buttons">
         <button onClick={() => showCards('doctorwho')} aria-disabled={dwdisabled}>
           Show Doctor Who regulars
