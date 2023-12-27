@@ -48,7 +48,7 @@ describe('testing spec', () => {
       matchCase: false,
     }).should('exist');
     // Pressing tab shouldn't change the focus
-    // TODO why isn't this working?
+    // TODO this isn't working in Chrome, perhaps due to cards on top of modal problem
     cy.get('.card--episodes-close').tab();
     //cy.focused().should('have.class', 'card--episodes-close');
     // TODO need to fix cards on top of modal problem
@@ -60,10 +60,12 @@ describe('testing spec', () => {
 
     // Can close modal by clicking on overlay
     // TODO need to fix cards on top of modal problem
-    /* cy.get('.card--episodes-overlay').click(0, 0);
+    // TODO uncomment once fixed cards on top of modal problem
+    //cy.get('.card--button').eq(1).click();
+    cy.get('.card--episodes-overlay').click(0, 0, { force: true });
     cy.contains('Full Circle', {
       matchCase: false,
-    }).should('not.exist'); */
+    }).should('not.exist');
 
     // Can close modal by pressing Escape key
     // TODO uncomment once fixed cards on top of modal problem
