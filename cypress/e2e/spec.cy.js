@@ -26,8 +26,8 @@ describe('testing spec', () => {
       matchCase: false,
     }).should('exist');
     cy.title().should('eq', 'Doctor Who in The Bill');
-    // TODO why is the favicon still blank?
-    //cy.visit('/').document().its('head').find('link[rel="icon"]').should('have.attr', 'href').should('eq', '/tardis.png');
+    // Check favicon
+    cy.document().its('head').find('link[rel="icon"]').should('have.attr', 'href').should('eq', '/tardis.png');
 
     // Pressing The Bill button
     cy.get('button').eq(1).click();
@@ -38,8 +38,8 @@ describe('testing spec', () => {
       matchCase: false,
     }).should('exist');
     cy.title().should('eq', 'The Bill in Doctor Who');
-    // TODO why is the favicon still blank?
-    //cy.visit('/').document().its('head').find('link[rel="icon"]').should('have.attr', 'href').should('eq', '/helmet.png');
+    // Check favicon
+    cy.document().its('head').find('link[rel="icon"]').should('have.attr', 'href').should('eq', '/helmet.png');
 
     // Open the episode list for one of the cards
     cy.get('.card--button').eq(1).click();
