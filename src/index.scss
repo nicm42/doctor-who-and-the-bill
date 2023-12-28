@@ -1,0 +1,37 @@
+:root {
+  // Colours
+  --body-background: hsl(225deg 93% 99%);
+  --button-background: hsl(225deg 93% 87%);
+  --button-background-hover: hsl(225deg 93% 78%);
+  --button-background-disabled: hsl(225deg 23% 87%);
+  --card-border-colour: hsl(225deg 100% 63%);
+
+  // Others
+  --border-radius: 0.25em;
+  --close-button-height: 0;
+  --close-button-width: 0;
+  --fade-out-time: 0ms;
+
+  color: #000;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--body-background);
+
+  // https://robbowen.digital/wrote-about/locking-scroll-with-has/
+  &:has(.card--episodes) {
+    overflow: hidden;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 500ms;
+}
