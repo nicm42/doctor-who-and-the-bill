@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { flushSync } from 'react-dom';
 import { useTitle } from './hooks/useTitle';
 import { useFavicon } from './hooks/useFavicon';
+import sortByName from './utils/sortByName';
 import Card from './components/Card';
 import './App.scss';
 import doctorwho from '../doctor-who.json';
@@ -15,6 +16,11 @@ function App() {
   const [subtitleText, setSubtitleText] = useState(
     'Press a button to see Doctor Who regulars who have been in The Bill or The Bill regulars who have been in Doctor Who',
   );
+
+  const sortedDoctorWho = useRef(sortByName(doctorwho));
+  const sortedTheBill = useRef(sortByName(thebill));
+  console.log(thebill);
+  console.log(sortedTheBill);
 
   useTitle(whatToShow);
   useFavicon(whatToShow);
@@ -68,7 +74,7 @@ function App() {
       </div>
       <div className="cards">
         {whatToShow === 'doctorwho' &&
-          doctorwho.map((person, index) => (
+          sortedDoctorWho.current.map((person, index) => (
             <Card
               key={person.name}
               name={person.name}
@@ -80,7 +86,7 @@ function App() {
             />
           ))}
         {whatToShow === 'thebill' &&
-          thebill.map((person, index) => (
+          sortedTheBill.current.map((person, index) => (
             <Card
               key={person.name}
               name={person.name}
