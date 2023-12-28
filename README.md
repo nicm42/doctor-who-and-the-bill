@@ -23,14 +23,14 @@ Doctor Who and The Bill are well known for having a lot of now-famous actors gue
 ## Technologies
 
 - React
-- SCSS
+- SCSS (including View Transition API)
 - Vite
 - Vitest
 - Cypress
 
 ## Setup
 
-To view this project <!-- visit the [demo](address goes here) or --> download the files, open a terminal in that folder and install locally using npm:
+To view this project visit the [demo](https://doctor-who-and-the-bill.pages.dev/) or download the files, open a terminal in that folder and install locally using npm:
 
 ```
 npm install
