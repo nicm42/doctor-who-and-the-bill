@@ -44,13 +44,17 @@ describe('testing spec', () => {
     // Open the episode list for one of the cards
     cy.get('.card--button').eq(1).click();
     cy.focused().should('have.class', 'card--episodes-close');
+
+    // Pressing tab shouldn't change the focus
+    cy.get('.card--episodes-close').tab();
+    cy.focused().should('have.class', 'card--episodes-close');
+
+    // Check the right episode list is there
     cy.contains('Full Circle', {
       matchCase: false,
     }).should('exist');
-    // Pressing tab shouldn't change the focus
-    // TODO this isn't working in Chrome
-    /* cy.get('.card--episodes-close').tab();
-    cy.focused().should('have.class', 'card--episodes-close'); */
+
+    // Can close modal by clicking on the close button
     cy.get('.card--episodes-close').click();
     cy.focused().should('have.class', 'card--button');
     cy.contains('Full Circle', {
